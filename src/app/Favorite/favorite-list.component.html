@@ -1,0 +1,49 @@
+<h2>Favarite Article</h2>
+<p-table
+    [value]=" $any(articles$ | async)"
+    [paginator]="true"
+    [rows]="5"
+    [showCurrentPageReport]="true"
+    [tableStyle]="{ 'min-width': '50rem' }"
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+    [rowsPerPageOptions]="[10, 25, 50]"
+    [loading]="loading"
+>
+    <ng-template pTemplate="header">
+    <tr>
+      <th style="width: 5%"></th>
+      <th style="width: 25%">Title</th>
+      <th style="width: 10%">Author</th>
+      <th style="width: 25%">Description</th>
+      <th style="width: 25%">PublishedAt</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-article>
+      <tr >
+        <td [routerLink]="['/news', articleType , article.id ]">
+          <i class="pi pi-eye" style="font-size: 2rem"></i>
+        </td>
+        <td >
+          {{ article.title }}
+        </td>
+        <td >
+          {{ article.author }}
+        </td> 
+        <td>
+          {{ article.description }}
+        </td>
+        <td>
+          {{ article.publishedAt }}
+        </td>
+        <td>
+          <p-button 
+          (click)="DeleteArticle(article.id)"
+          icon="pi pi-trash"
+          class="p-button-text"
+          [loading]="loading"
+          ></p-button>
+        </td>
+      </tr>
+    </ng-template>
+</p-table>
+<p-toast></p-toast>

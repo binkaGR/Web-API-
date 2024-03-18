@@ -1,0 +1,25 @@
+<h1>Angular Article App</h1>
+
+<p-dock [model]="items" [position]="position">
+  <ng-template pTemplate="item" let-item>
+    <img
+      class="cursor-pointer"
+      [src]="item.icon"
+      [alt]="item.label"
+      width="100%"
+    />
+  </ng-template>
+</p-dock>
+
+<p-table>
+  <ng-template pTemplate="caption">
+    <div class="flex">
+      <p-menubar [model]="itemsMenu">
+        <ng-template pTemplate="start">             
+        </ng-template>  
+    </p-menubar>
+   </div> 
+  </ng-template>
+</p-table>
+
+<router-outlet></router-outlet>

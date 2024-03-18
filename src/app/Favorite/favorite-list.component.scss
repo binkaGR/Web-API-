@@ -1,0 +1,20 @@
+
+.card {
+  background: var(--surface-card);
+  padding: 2rem;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+.flex-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-row {
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 1.5rem;
+}
+.buttons > p-button {
+  margin: 0.5rem;
+}
